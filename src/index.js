@@ -2,9 +2,11 @@
  * This file is just a silly example to show everything working in the browser.
  * When you're ready to start on your site, clear the file. Happy hacking!
  **/
-
+//URL Base
+const baseUrl="https://platzi-avo.vercel.app/" 
 //URL API
 const url = "https://platzi-avo.vercel.app/api/avo";
+const containerApp = document.querySelector('#container');
 
 
 /*Web API Fetch
@@ -39,16 +41,16 @@ nos servira para renderizar esa info en nuestro navegador*/
         
        //creamos nuestros elementos
        const imagen = document.createElement('img');
-       const titulo = document.createElement('h2');      
-       const precio = document.createElement('div');
+       imagen.src = `${baseUrl}${item.image}`;
+
+       const titulo = document.createElement('h2'); 
+       titulo.textContent=item.name;     
+       
+       const precio = document.createElement('h3');
+       precio.textContent= item.price;
        // cremos el contenedor donde vamos a poner nuestros elementos
        const container = document.createElement('div');
 
-   /*agregamos los elementos a un contenedor
-       container.appendChild(imagen);
-       container.appendChild(titulo);
-       container.appendChild(precio);
-   */
        container.append(imagen,titulo,precio);
        //agregamos el contenedor en nuestro body
        //document.body.appendChild(container);
@@ -57,7 +59,7 @@ nos servira para renderizar esa info en nuestro navegador*/
            
        });
 
-       document.body.append(...todosLosItems)
+       containerApp.append(...todosLosItems)
 
    });
 
