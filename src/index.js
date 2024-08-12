@@ -8,12 +8,11 @@ const baseUrl="https://platzi-avo.vercel.app/"
 const url = "https://platzi-avo.vercel.app/api/avo";
 const containerApp = document.querySelector('#container');
 
-
+//Utilizacion de la libereria/API INTL - internacionalizacion para monedas o fechas
 const formatPrice = price => {
-
     const newPrice = new window.Intl.NumberFormat("es-EN", {
         style: "currency",
-        currency: "USD"
+        currency: "USD"//"USD", "GBP"
     }).format(price) //como ya inicialice la api le voy a decir a la api
                     //que le voy a dar formato al precio que he recibido
 
@@ -67,7 +66,7 @@ nos servira para renderizar esa info en nuestro navegador*/
 
        // cremos el contenedor donde vamos a poner nuestros elementos
        const container = document.createElement('div');
-       container.className = "md:flex bg-green-100 rounded-lg mx-auto max-w-4xl p-4 my-8 hover:bg-green-300"
+       container.className = "md:flex bg-green-100 rounded-lg mx-auto max-w-4xl p-4 my-3 hover:bg-green-300"
 
        container.append(imagen,titulo,precio);
        //agregamos el contenedor en nuestro body
