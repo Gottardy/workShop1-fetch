@@ -61,7 +61,7 @@ nos servira para renderizar esa info en nuestro navegador*/
        const precio = document.createElement('h3');
        //precio.textContent= item.price;
        precio.textContent = formatPrice(item.price);
-       precio.className = 'text-gray-600 mx-auto my-auto'
+       precio.className = 'text-xl text-gray-600 mx-auto my-auto'
 
 
        // cremos el contenedor donde vamos a poner nuestros elementos
