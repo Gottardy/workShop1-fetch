@@ -9,6 +9,17 @@ const url = "https://platzi-avo.vercel.app/api/avo";
 const containerApp = document.querySelector('#container');
 
 
+const formatPrice = price => {
+
+    const newPrice = new window.Intl.NumberFormat("es-EN", {
+        style: "currency",
+        currency: "USD"
+    }).format(price) //como ya inicialice la api le voy a decir a la api
+                    //que le voy a dar formato al precio que he recibido
+
+    return newPrice;
+ }
+
 /*Web API Fetch
 La utilizamos para traer recursos desde cualquier otro sitio web
 Lo unico que tenemos que pasarle es nuestra url
@@ -42,14 +53,21 @@ nos servira para renderizar esa info en nuestro navegador*/
        //creamos nuestros elementos
        const imagen = document.createElement('img');
        imagen.src = `${baseUrl}${item.image}`;
+       imagen.className = "h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0 md:mr-6"
 
        const titulo = document.createElement('h2'); 
-       titulo.textContent=item.name;     
+       titulo.textContent=item.name;
+       titulo.className = 'text-xl mx-auto my-auto'//'text-lg'     
        
        const precio = document.createElement('h3');
-       precio.textContent= item.price;
+       //precio.textContent= item.price;
+       precio.textContent = formatPrice(item.price);
+       precio.className = 'text-gray-600 mx-auto my-auto'
+
+
        // cremos el contenedor donde vamos a poner nuestros elementos
        const container = document.createElement('div');
+       container.className = "md:flex bg-green-100 rounded-lg mx-auto max-w-4xl p-4 my-8 hover:bg-green-300"
 
        container.append(imagen,titulo,precio);
        //agregamos el contenedor en nuestro body
